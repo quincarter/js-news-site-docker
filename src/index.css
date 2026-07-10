@@ -1,0 +1,20 @@
+:root {
+  color-scheme: light dark;
+  background-color: #f8fafc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    background-color: #090a0f;
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
