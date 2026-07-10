@@ -7,9 +7,9 @@ This project is a dockerized single-page application built with **Lit 3**, **Typ
 ## Architecture Overview
 
 The application features a resilient, hybrid storage model:
-1. **Primary Database (PostgreSQL)**: Serves as the central repository for sources, saved articles, settings, and cached news feeds.
-2. **Offline Fallback (IndexedDB)**: Frontend queries the Express APIs first. If the backend is unreachable (e.g. server offline or network issues), the app seamlessly falls back to the client-side IndexedDB database. Any changes are automatically cached locally so that the application remains fully functional offline.
-3. **Gateway (Nginx)**: Serves the compiled static frontend files and proxies API requests starting with `/api/` directly to the Express backend container, preventing CORS issues.
+1. **Primary Database (PostgreSQL)** is the central repository for sources, saved articles, settings, and cached news feeds.
+2. **Offline Fallback (IndexedDB)**. The frontend queries the Express APIs first. If the backend is unreachable (e.g. server offline or network issues), the app falls back to the client-side IndexedDB database. Any changes are automatically cached locally so that the application remains fully functional offline.
+3. **Gateway (Nginx)** serves the compiled static frontend files and proxies API requests starting with `/api/` directly to the Express backend container, preventing CORS issues.
 
 ```mermaid
 graph TD
@@ -85,7 +85,7 @@ By default, the frontend dev server runs on [http://localhost:5173](http://local
 ## Database Schema Details
 
 The PostgreSQL tables are automatically defined on startup in the Express server:
-- **`sources`**: Tracks GitHub repositories to aggregate releases from (e.g. Node.js, React, Lit).
-- **`saved_articles`**: Stores articles bookmarked by the user.
-- **`cache`**: Stores transient fetched news payloads to reduce GitHub API rate-limit usage.
-- **`settings`**: Manages user options, including the `github_token`.
+- **`sources`**: tracks GitHub repositories to aggregate releases from (e.g. Node.js, React, Lit).
+- **`saved_articles`**: stores articles bookmarked by the user.
+- **`cache`**: stores transient fetched news payloads to reduce GitHub API rate-limit usage.
+- **`settings`**: manages user options, including the `github_token`.

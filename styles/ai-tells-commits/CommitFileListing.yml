@@ -1,0 +1,9 @@
+---
+extends: existence
+message: "AI commit tell: file-by-file listing. The diff already shows what files changed. Describe what changed about the code."
+level: warning
+# scope: raw so markdown list parsing does not strip the bullet markers
+# the regex relies on.
+scope: raw
+raw:
+  - '(?m)(?:^\s*[-*+]\s+(?:[A-Za-z0-9_./-]+/)?[A-Za-z0-9_.-]+\.(?:ts|tsx|js|jsx|mjs|cjs|py|go|rs|java|kt|cpp|cc|c|h|hpp|cs|rb|php|swift|m|mm|md|rst|adoc|yaml|yml|json|toml|ini|sh|bash|zsh|fish|sql|css|scss|sass|less|html|htm|xml|proto|graphql|gql|tf|tfvars|env|conf|cfg)\s*$\n){3,}'
